@@ -32,8 +32,7 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login(this.login.username)
-        .then(e => this.analyticsFirebase.setUserId(this.login.username));
+      this.userData.login(this.login.username);
       this.router.navigateByUrl('/app/tabs/schedule');
     }
   }

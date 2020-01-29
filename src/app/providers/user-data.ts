@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class UserData {
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 
   constructor(
-    public storage: Storage
+    public storage: Storage,
+    private analyticsFirebase: AnalyticsFirebase
   ) { }
 
   hasFavorite(sessionName: string): boolean {
@@ -31,21 +33,24 @@ export class UserData {
 
   login(username: string): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true)
-      .then(() => this.setUsername(username));
+      .then(() => this.setUsername(username))
+      .then(() => this.analyticsFirebase.setUserId('USER-ID:' + username));
   }
 
   signup(username: string): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true)
-      .then(() => this.setUsername(username));
+      .then(() => this.setUsername(username))
+      .then(() => this.analyticsFirebase.setUserId('USER-ID:' + username));
   }
 
   logout(): Promise<any> {
-    return this.storage.remove(this.HAS_LOGGED_IN).then(() => {
-      return this.storage.remove('username');
-    });
+    return this.storage.remove(this.HAS_LOGGED_IN)
+      .then(() => this.storage.remove('username'))
+      .then(() => this.analyticsFirebase.resetAnalyticsData());
   }
 
   setUsername(username: string): Promise<any> {
+    this.analyticsFirebase.setUserProperty('username', username);
     return this.storage.set('username', username);
   }
 
