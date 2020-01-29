@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { MenuController, IonSlides } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';

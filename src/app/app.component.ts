@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { MenuController, Platform, ToastController } from '@ionic/angular';
 
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
     private userData: UserData,
     private swUpdate: SwUpdate,
     private toastCtrl: ToastController,
-    private analyticsFirebase: AnalyticsFirebase
+    public analyticsFirebase: AnalyticsFirebase
   ) {
     this.initializeApp();
   }
@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
       const eventParams = {};
       eventParams['toDate'] = ( new Date() ).toString();
-      this.analyticsFirebase.logEvent('start_app', eventParams)
+      this.analyticsFirebase.logEvent(this.analyticsFirebase.DEFAULT_EVENTS.APP_OPEN, eventParams)
         .then(() => console.log('Event successfully tracked'))
         .catch(err => console.log('Error tracking event:', err));
     });

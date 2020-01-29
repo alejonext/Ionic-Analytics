@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { ConferenceData } from '../../providers/conference-data';
 
 @Component({

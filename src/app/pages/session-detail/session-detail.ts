@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { ConferenceData } from '../../providers/conference-data';
 import { ActivatedRoute } from '@angular/router';
 import { UserData } from '../../providers/user-data';

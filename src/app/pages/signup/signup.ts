@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';

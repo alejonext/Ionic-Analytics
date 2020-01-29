@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { AlertController } from '@ionic/angular';
 
 import { UserData } from '../../providers/user-data';

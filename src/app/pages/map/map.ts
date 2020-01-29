@@ -2,7 +2,7 @@ import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angula
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform } from '@ionic/angular';
 import { DOCUMENT} from '@angular/common';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { darkStyle } from './map-dark-style';
 
 @Component({

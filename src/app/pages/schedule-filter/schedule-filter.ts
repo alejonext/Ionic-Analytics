@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Config, ModalController, NavParams } from '@ionic/angular';
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase/ngx';
 import { ConferenceData } from '../../providers/conference-data';
 
 
