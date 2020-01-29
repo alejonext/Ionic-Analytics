@@ -23,7 +23,7 @@ export class ScheduleFilterPage implements AfterViewInit {
   ) { }
 
   ionViewWillEnter() {
-    this.analyticsFirebase.setCurrentScreen('Schedule filter');
+    this.analyticsFirebase.setCurrentScreen('ScheduleFilter');
     this.ios = this.config.get('mode') === `ios`;
   }
 
@@ -51,6 +51,9 @@ export class ScheduleFilterPage implements AfterViewInit {
   }
 
   applyFilters() {
+    const eventParams = {};
+    eventParams['search'] = 29;
+    this.analyticsFirebase.logEvent('apply-filter', eventParams);
     // Pass back a new array of track names to exclude
     const excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
     this.dismiss(excludedTrackNames);

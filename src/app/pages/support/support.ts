@@ -35,6 +35,7 @@ export class SupportPage {
     this.submitted = true;
 
     if (form.valid) {
+      this.analyticsFirebase.logEvent('necesita_soporte');
       this.supportMessage = '';
       this.submitted = false;
 

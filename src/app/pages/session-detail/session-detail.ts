@@ -50,7 +50,10 @@ export class SessionDetailPage {
   }
 
   sessionClick(item: string) {
+    const eventParams = {};
+    eventParams['my-prop'] = item;
     console.log('Clicked', item);
+    this.analyticsFirebase.logEvent('my-event', eventParams)
   }
 
   toggleFavorite() {

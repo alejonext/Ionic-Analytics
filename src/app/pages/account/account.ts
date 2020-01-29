@@ -34,6 +34,7 @@ export class AccountPage implements AfterViewInit {
   // clicking OK will update the username and display it
   // clicking Cancel will close the alert and do nothing
   async changeUsername() {
+    this.analyticsFirebase.logEvent('changeName');
     const alert = await this.alertCtrl.create({
       header: 'Change Username',
       buttons: [

@@ -45,6 +45,7 @@ export class SpeakerListPage {
         {
           text: 'Copy Link',
           handler: () => {
+            this.analyticsFirebase.logEvent('CopyTwitter', speaker);
             console.log(
               'Copy link clicked on https://twitter.com/' + speaker.twitter
             );
@@ -81,6 +82,7 @@ export class SpeakerListPage {
           text: `Email ( ${speaker.email} )`,
           icon: mode !== 'ios' ? 'mail' : null,
           handler: () => {
+            this.analyticsFirebase.logEvent('SendEmail', speaker);
             window.open('mailto:' + speaker.email);
           }
         },
@@ -88,6 +90,7 @@ export class SpeakerListPage {
           text: `Call ( ${speaker.phone} )`,
           icon: mode !== 'ios' ? 'call' : null,
           handler: () => {
+            this.analyticsFirebase.logEvent('Call', speaker);
             window.open('tel:' + speaker.phone);
           }
         }

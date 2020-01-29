@@ -21,6 +21,7 @@ export class AboutPage {
   }
 
   async presentPopover(event: Event) {
+    this.analyticsFirebase.logEvent('ShowPopover');
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       event

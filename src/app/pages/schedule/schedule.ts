@@ -73,6 +73,9 @@ export class SchedulePage implements OnInit {
   }
 
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
+    const eventParams = {};
+    eventParams['favorite'] = sessionData.name;
+    this.analyticsFirebase.logEvent('add-favorite', eventParams);
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
       // prompt them to remove it
@@ -99,6 +102,9 @@ export class SchedulePage implements OnInit {
   }
 
   async removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
+    const eventParams = {};
+    eventParams['favorite'] = sessionData.name;
+    this.analyticsFirebase.logEvent('remove-favorite', eventParams);
     const alert = await this.alertCtrl.create({
       header: title,
       message: 'Would you like to remove this session from your favorites?',
