@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Config, ModalController, NavParams } from '@ionic/angular';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { ConferenceData } from '../../providers/conference-data';
 
 
@@ -18,10 +18,12 @@ export class ScheduleFilterPage implements AfterViewInit {
     public confData: ConferenceData,
     private config: Config,
     public modalCtrl: ModalController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private analyticsFirebase: AnalyticsFirebase
   ) { }
 
   ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('Schedule filter');
     this.ios = this.config.get('mode') === `ios`;
   }
 

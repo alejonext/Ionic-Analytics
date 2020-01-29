@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { AlertController } from '@ionic/angular';
 
 import { UserData } from '../../providers/user-data';
@@ -17,11 +17,13 @@ export class AccountPage implements AfterViewInit {
   constructor(
     public alertCtrl: AlertController,
     public router: Router,
-    public userData: UserData
+    public userData: UserData,
+    private analyticsFirebase: AnalyticsFirebase
   ) { }
 
   ngAfterViewInit() {
     this.getUsername();
+    this.analyticsFirebase.setCurrentScreen('Account');
   }
 
   updatePicture() {

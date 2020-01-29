@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { ConferenceData } from '../../providers/conference-data';
 
 @Component({
@@ -17,8 +17,13 @@ export class SpeakerListPage {
     public actionSheetCtrl: ActionSheetController,
     public confData: ConferenceData,
     public inAppBrowser: InAppBrowser,
-    public router: Router
+    public router: Router,
+    private analyticsFirebase: AnalyticsFirebase
   ) {}
+
+  ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('List Speaker');
+  }
 
   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {

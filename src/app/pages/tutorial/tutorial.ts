@@ -36,6 +36,7 @@ export class TutorialPage {
   }
 
   ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('Tutorial');
     this.storage.get('ion_did_tutorial').then(res => {
       if (res === true) {
         this.router.navigateByUrl('/app/tabs/schedule', { replaceUrl: true });

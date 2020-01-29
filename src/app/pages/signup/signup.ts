@@ -1,12 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';
-
-
 
 @Component({
   selector: 'page-signup',
@@ -19,8 +17,13 @@ export class SignupPage {
 
   constructor(
     public router: Router,
-    public userData: UserData
+    public userData: UserData,
+    private analyticsFirebase: AnalyticsFirebase
   ) {}
+
+  ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('Support');
+  }
 
   onSignup(form: NgForm) {
     this.submitted = true;

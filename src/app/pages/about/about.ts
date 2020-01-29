@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { PopoverController } from '@ionic/angular';
 
 import { PopoverPage } from '../about-popover/about-popover';
@@ -12,7 +12,13 @@ import { PopoverPage } from '../about-popover/about-popover';
 export class AboutPage {
   conferenceDate = '2047-05-17';
 
-  constructor(public popoverCtrl: PopoverController) { }
+  constructor(
+    public popoverCtrl: PopoverController,
+    private analyticsFirebase: AnalyticsFirebase) { }
+
+  ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('About');
+  }
 
   async presentPopover(event: Event) {
     const popover = await this.popoverCtrl.create({

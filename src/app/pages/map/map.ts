@@ -2,7 +2,7 @@ import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angula
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform } from '@ionic/angular';
 import { DOCUMENT} from '@angular/common';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { darkStyle } from './map-dark-style';
 
 @Component({
@@ -16,7 +16,13 @@ export class MapPage implements AfterViewInit {
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
-    public platform: Platform) {}
+    public platform: Platform,
+    private analyticsFirebase: AnalyticsFirebase
+  ) {}
+
+  ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('Map');
+  }
 
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');

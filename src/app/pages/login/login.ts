@@ -24,6 +24,10 @@ export class LoginPage {
     private analyticsFirebase: AnalyticsFirebase
   ) { }
 
+  ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('Login');
+  }
+
   onLogin(form: NgForm) {
     this.submitted = true;
 

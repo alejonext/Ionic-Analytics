@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { ConferenceData } from '../../providers/conference-data';
 import { ActivatedRoute } from '@angular/router';
 import { UserData } from '../../providers/user-data';
@@ -17,13 +17,15 @@ export class SessionDetailPage {
   constructor(
     private dataProvider: ConferenceData,
     private userProvider: UserData,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private analyticsFirebase: AnalyticsFirebase
   ) { }
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
       if (data && data.schedule && data.schedule[0] && data.schedule[0].groups) {
         const sessionId = this.route.snapshot.paramMap.get('sessionId');
+        this.analyticsFirebase.setCurrentScreen('Support:' + sessionId  );
         for (const group of data.schedule[0].groups) {
           if (group && group.sessions) {
             for (const session of group.sessions) {

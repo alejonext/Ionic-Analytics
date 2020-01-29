@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 import { AlertController, ToastController } from '@ionic/angular';
 
 
@@ -15,8 +15,13 @@ export class SupportPage {
 
   constructor(
     public alertCtrl: AlertController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private analyticsFirebase: AnalyticsFirebase
   ) { }
+
+  ionViewWillEnter() {
+    this.analyticsFirebase.setCurrentScreen('Support');
+  }
 
   async ionViewDidEnter() {
     const toast = await this.toastCtrl.create({
