@@ -148,3 +148,8 @@ Este se usa cuando el usuario cierra sesion, [un ejemplo](https://github.com/ale
 ```ts
 this.analyticsFirebase.resetAnalyticsData();
 ```
+
+# Mas documentacion
+
+* [Ionic Analytics Firebase](https://ionicframework.com/docs/native/analytics-firebase)
+* [Google Analytics Firebase Plugin](https://github.com/appfeel/analytics-google)
