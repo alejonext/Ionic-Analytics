@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212317824812",
+    "firebase_url": "https://app-test-ionic.firebaseio.com",
+    "project_id": "app-test-ionic",
+    "storage_bucket": "app-test-ionic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212317824812:android:63d06022448cd5a7b96e89",
+        "android_client_info": {
+          "package_name": "com.test.app.conferenceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212317824812-jpd5aa69c97iqtfogb7ldh1d3igt8rvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1b8JHH6aOKP6Y5NmM7Q6BCVTTlhm3xfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212317824812-jpd5aa69c97iqtfogb7ldh1d3igt8rvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
